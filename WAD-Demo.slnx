@@ -7,5 +7,6 @@
   <Folder Name="/Exercices/">
     <Project Path="EXO-1-Fiche-Utilisateur/EXO-1-Fiche-Utilisateur.csproj" />
     <Project Path="EXO-2-TypeVariale/EXO-2-TypeVariale.csproj" Id="f3c3debd-02ea-42cc-accd-64c2135a9fd8" />
+    <Project Path="EXO-3-Recap/EXO-3-Recap.csproj" />
   </Folder>
 </Solution>
