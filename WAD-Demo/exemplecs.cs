@@ -8,7 +8,7 @@ namespace WAD_Demo;
 
 internal static class Variables
 {
-    public static void autre_instructrion()
+    public static void autre_instruction()
     {
         // See https://aka.ms/new-console-template for more information
 

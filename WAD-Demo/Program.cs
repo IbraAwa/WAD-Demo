@@ -99,51 +99,51 @@ string nOm = "";
 // On peut changer la valeur d'une variable déjà déclarée (sans remettre le type)
 nOm = "salut";
 
-// -- déclarer notre variable
-// Type Identifiant = valeur
-// Identifiant/Nom variable
+// -- Déclarer une variable --
+// Type Identifiant = valeur;
+// Identifiant = nom de la variable
 
-string exempleVariable = "Salut"; // Variable camelcase
-// (minusucule pour la premiere lettre et chaque nouveau mot une majuscule)
+string exempleVariable = "Salut"; // Variable en camelCase
+// (minuscule pour la première lettre, puis une majuscule à chaque nouveau mot)
 
 
-// var permet de ne pas précisé le type c'est C# qui déduit le typage via la valeur
+// var permet de ne pas préciser le type : c'est C# qui le déduit à partir de la valeur
 // Attention : très déconseillé
-// ça reste fortement typé
+// Ça reste fortement typé
 var exempleVariable2 = 15;
 
 
 
-// -- variable nullable --
+// -- Variable nullable --
 
 string surnom1;
 
 string surnom2 = "";
 
-// le '?' permet de dire qu'une variable peut être nulle
+// Le '?' permet de dire qu'une variable peut être nulle
 string? surnom3 = "salut";
 
-// nullable<int> =>  int? grâce au suc syntaxique
+// Nullable<int> => int? grâce au sucre syntaxique
 int? ageNullable;
 
-// exemple générale variable
+// Exemple général sur les variables
 
-Console.WriteLine("Pouvez-vous écrire votre prénom silvouplait");
+Console.WriteLine("Pouvez-vous écrire votre prénom s'il vous plaît ?");
 string? prenomChoice = Console.ReadLine();
-Console.WriteLine("Pouvez-vous écrire votre nom silvouplait");
+Console.WriteLine("Pouvez-vous écrire votre nom s'il vous plaît ?");
 string? nomChoice = Console.ReadLine();
 
-Console.WriteLine("votre prénom est : " + prenomChoice + " " + nomChoice);
+Console.WriteLine("Votre prénom est : " + prenomChoice + " " + nomChoice);
 Console.WriteLine();
-// la favorite beaucoup utilisé
+// La favorite, très utilisée (interpolation de chaîne)
 Console.WriteLine($"Votre prénom est {prenomChoice} {nomChoice}");
 Console.WriteLine();
-// utilisé pour des log
+// Utilisée pour les logs
 Console.WriteLine("Votre prénom est {0} {1}", prenomChoice, nomChoice);
 
 
-// Crée une application console
-// Dans cette application console
-// demandé le prénom, nom, age, numéro bancaire
-// Affiché ensuite la fiche de l'utilisateur
-// affiché tout les info qu'il a écrit
+// Créer une application console
+// Dans cette application console :
+// demander le prénom, le nom, l'âge et le numéro bancaire
+// Afficher ensuite la fiche de l'utilisateur
+// Afficher toutes les infos qu'il a écrites

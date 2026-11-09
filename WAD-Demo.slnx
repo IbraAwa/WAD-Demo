@@ -1,4 +1,8 @@
 <Solution>
-  <Project Path="EXO-1-Fiche-Utilisateur/EXO-1-Fiche-Utilisateur.csproj" />
-  <Project Path="WAD-Demo/WAD-Demo.csproj" />
+  <Folder Name="/Demos/">
+    <Project Path="WAD-Demo/WAD-Demo-Variable.csproj" />
+  </Folder>
+  <Folder Name="/Exercices/">
+    <Project Path="EXO-1-Fiche-Utilisateur/EXO-1-Fiche-Utilisateur.csproj" />
+  </Folder>
 </Solution>
