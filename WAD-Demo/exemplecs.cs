@@ -1,0 +1,114 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace WAD_Demo;
+
+internal static class Variables
+{
+    public static void autre_instructrion()
+    {
+        // See https://aka.ms/new-console-template for more information
+
+        // ===================================================
+        // AFFICHER ET LIRE DANS LA CONSOLE
+        // ===================================================
+
+        // Toujours utiliser le WriteLine (il revient à la ligne après le texte)
+        Console.WriteLine("Salut, je suis un WriteLine");
+
+        // Write écrit sans revenir à la ligne
+        //Console.Write("Salut, je suis un Write");
+
+        // Astuce : taper "cw" puis Tab (ou Entrée) génère Console.WriteLine();
+        Console.WriteLine("On peut écrire Console.WriteLine juste en tapant cw puis Tab");
+
+        // WriteLine : écrire dans la console
+        Console.WriteLine("Tapez votre prénom");
+
+        // ReadLine : lire dans la console ce que l'utilisateur a écrit (jusqu'à Entrée)
+        Console.ReadLine();
+
+        Console.WriteLine("Fin de programme");
+
+        // Clear efface tout ce qui a été affiché dans la console avant son appel
+        Console.Clear();
+
+        // Ce texte s'affiche car il est écrit après l'appel de la méthode Clear
+        Console.WriteLine("J'apparais après le Clear car je suis après l'appel de la méthode");
+
+
+        // ===================================================
+        // LES COMMENTAIRES
+        // ===================================================
+
+        // Commentaire sur une ligne
+
+        /*
+         Commentaire
+         sur
+         plusieurs
+         lignes
+        */
+
+
+        // ===================================================
+        // LES VARIABLES
+        // ===================================================
+
+        // --- Les types de variables ---
+
+        // string : une chaîne de caractères (du texte)
+        string prenom = "Marco";
+
+        // int : nombre entier entre environ -2 milliards et +2 milliards
+        //int age = 19;
+
+        // long : nombre entier entre environ -9 trillions et +9 trillions
+        // (9 suivi de 18 chiffres)
+        long compteBancaire = 56146454615;
+
+        // decimal : nombre à virgule le plus précis (28-29 chiffres significatifs)
+        // Calculs exacts en base 10 : à utiliser pour l'argent
+        // Le suffixe m est obligatoire
+        decimal prix1 = 0.00m;
+
+        // double : nombre à virgule par défaut en C# (15-17 chiffres significatifs)
+        // Rapide, mais de petites erreurs d'arrondi possibles (0.1 + 0.2 != 0.3)
+        double prix2 = 0.00;
+
+        // float : nombre à virgule le moins précis (6-9 chiffres significatifs)
+        // Prend moins de mémoire (jeux, graphisme, gros tableaux)
+        // Le suffixe f est obligatoire
+        float prix3 = 0.00f;
+
+        // bool : un booléen, ne peut valoir que true (vrai) ou false (faux)
+        bool estMajeur = true;
+        bool estMineur = false;
+
+
+        // --- Le nom des variables ---
+
+        // Les variables sont sensibles à la casse (majuscules / minuscules) :
+        // il faut exactement le même nom pour que C# les considère comme la même variable.
+        // Ici, ce sont donc 3 variables différentes :
+        int age = 20;
+        int Age = 25;
+        int AGE = 35;
+
+        // Erreur de compilation : la variable AGE existe déjà, on ne peut pas la redéclarer
+        // int AGE = 40;
+
+        // Convention en C# : les variables locales s'écrivent en camelCase
+        // (première lettre en minuscule, puis une majuscule à chaque nouveau mot)
+        // ex : prenom, compteBancaire, estMajeur
+
+        // Mauvais exemple : nOm fonctionne, mais ne respecte pas la convention
+        string nOm = "";
+
+        // On peut changer la valeur d'une variable déjà déclarée (sans remettre le type)
+        nOm = "salut";
+    }
+}
