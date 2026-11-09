@@ -1,8 +1,11 @@
 <Solution>
   <Folder Name="/Demos/">
+    <Project Path="WAD-Demo-Conversion/WAD-Demo-Conversion.csproj" Id="822e9fc3-9ae9-4564-b5cc-5175a6340956" />
+    <Project Path="WAD-Demo-String/WAD-Demo-String.csproj" Id="58699288-e47f-45bd-94f6-a42442c29de8" />
     <Project Path="WAD-Demo/WAD-Demo-Variable.csproj" />
   </Folder>
   <Folder Name="/Exercices/">
     <Project Path="EXO-1-Fiche-Utilisateur/EXO-1-Fiche-Utilisateur.csproj" />
+    <Project Path="EXO-2-TypeVariale/EXO-2-TypeVariale.csproj" Id="f3c3debd-02ea-42cc-accd-64c2135a9fd8" />
   </Folder>
 </Solution>
