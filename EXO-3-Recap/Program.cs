@@ -25,6 +25,8 @@
  *
  */
 
+using System.Text;
+
 Console.WriteLine("EXO 3 - Récapitulatif");
 
 
@@ -40,7 +42,7 @@ Console.WriteLine("EXO 3 - Récapitulatif");
  * 2. Affiche : Appuyez sur une touche pour ouvrir la caisse...
  * 3. Attends que l'utilisateur appuie sur une touche, puis efface la console.
  * 4. Affiche : === CAISSE OUVERTE ===
- *
+ 
  * RÉPONSES :
  *  a) Quelle est la différence entre Write et WriteLine ?
  *  b) Pourquoi les textes des points 1 et 2 ne sont-ils plus visibles à la fin ?
@@ -476,3 +478,116 @@ Console.WriteLine("EXO 3 - Récapitulatif");
  *       c) Quelle est la différence entre un champ et une variable locale ?
  *  12.7 Pourquoi Console.ReadLine() retourne-t-il un string? et pas un string ?
  */
+
+/* 
+ * 1.Avec DEUX Console.Write, affiche sur UNE SEULE ligne :
+ *Bienvenue à la librairie Le Grimoire
+ *    ("Bienvenue à la librairie " avec le 1er Write, "Le Grimoire" avec le 2e),
+ *    puis reviens à la ligne vide.
+ * 2. Affiche : Appuyez sur une touche pour ouvrir la caisse...
+ * 3. Attends que l'utilisateur appuie sur une touche, puis efface la console.
+ * 4. Affiche : === CAISSE OUVERTE ===
+ */
+
+Console.Write("Bienvenue à la librairie ");
+Console.Write("le Grimoire");
+Console.WriteLine();
+Console.ReadKey();
+Console.Clear();
+Console.WriteLine("=== CAISSE OUVERTE===");
+
+/* 
+  * 2.1 CONSTANTES — Déclare 3 constantes (nomme-les comme sur la slide 68) :
+ *       - le nom de la librairie : "Le Grimoire"
+ *       - le taux de TVA sur les livres : 6 % (donc 0,06)
+ *       - le nombre de caisses : 3
+ *     Choisis le type de chacune. Pour la TVA, justifie ton choix de type en commentaire
+ *     (indice : on va calculer des prix).
+ */
+
+const string librairieName = "Le Grimoire"; // chaine de caractère
+const decimal TVA = 0.06m; // decimal car meilleur précision
+const int caisse = 3; // car je pense on aura jamais plusieurs quintillions de caisse
+
+
+
+/*
+ * 2.3 VARIABLES — Déclare une variable pour chaque information, avec le type LE PLUS ADAPTÉ.
+ *     Justifie chaque choix en une ligne de commentaire. Respecte le camelCase.
+ *       - le nombre de livres en stock : 1 250
+ * -le chiffre d'affaires depuis l'ouverture, en centimes : 12 500 000 000
+ * (utilise le séparateur de milliers vu en slide 81)
+ *       - le prix d'un livre : 19,99 €
+ *       - le poids d'un colis en kg : 1,75
+ *       - la lettre du rayon : R
+ * -la librairie est ouverte : true / false
+ * -l'âge minimum pour le rayon horreur : 16 (un type qui va de 0 à 255 suffit)
+ * Affiche ensuite toutes ces variables.
+ */
+
+//camelCase = premeir mot sans majuscule et chaque nouveau mot commence par une majuscule
+// exemple = salutCommentCaVa
+
+decimal prixLivre = 19.99m;
+double poidColis = 1.75;
+char lettreRayon = 'R';
+bool librairieEstOuverte = false;
+Int16 ageMinimum = 16;
+
+Console.WriteLine($"le prix livre est de {prixLivre}");
+Console.WriteLine($"le poid du colis est de {poidColis} kg");
+Console.WriteLine($"première lettre du rayon {lettreRayon}");
+Console.WriteLine($"l'age minimum pour le rayon {lettreRayon} est de {ageMinimum}");
+Console.WriteLine($"est-ce que la librairie est ouverte ? {librairieEstOuverte}");
+
+
+
+
+/*
+ * 2.4 Sur UNE SEULE ligne, déclare et initialise la largeur (120) et la hauteur (200)
+ *     d'une étagère (slide 62). */
+
+int largeurEtagere = 120, hauteurEtagere = 200;
+
+/*
+ *
+ * 2.5 Déclaration / initialisation / affectation (slide 63) :
+ *a) Déclare « int remise; » SANS valeur et essaie de l'afficher → PROVOQUE UNE ERREUR.
+ *       b) Corrige : initialise remise à 0, puis fais une affectation qui lui ajoute 5.
+ *       c) Écris à côté de chaque ligne s'il s'agit d'une déclaration, d'une
+ *          initialisation ou d'une affectation.
+ */
+// int remise // déclaire
+int remise = 0; //initialise
+
+// equivaut à : remise = remise + 5;
+remise += 5; // affectation
+Console.WriteLine(remise);
+
+/*
+ * 2.6 Déclare « int etagere = 1; » puis « int Etagere = 2; ». Affiche les deux.
+ *     RÉPONSE : pourquoi le compilateur ne dit-il rien ?
+ **/
+
+// Aucun problème car C# est sensible a la casse donc aux différence majuscule minuscule
+
+
+/*
+ * 2.7 var (slide 64) :
+ *a) Déclare avec var : 42, "Tolkien" et 9.99m. Affiche le type de chacune avec GetType().
+ *       b) PROVOQUE UNE ERREUR : « var x; »
+ *c) RÉPONSE: une variable déclarée avec var peut-elle ensuite recevoir une valeur
+ *          d'un autre type ? Pourquoi ? (teste-le !)
+ */
+
+var nombre = 42;
+
+
+var auteurNom = "Tolkien";
+var prixLivreTolkien = 9.99m;
+
+/*
+ * 2.8 Le caractère (slide 76) : crée 4 variables char qui valent TOUTES 'A',
+ *     écrites de 4 façons différentes. Affiche-les sur une seule ligne.
+ */
+
