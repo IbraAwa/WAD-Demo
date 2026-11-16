@@ -1,4 +1,4 @@
-namespace WAD_Demo_Operateur
+namespace WAD_Demo_Operateur.Demos
 {
     // -- TERNAIRE --  condition ? siVrai : siFaux
     // un if...else en une seule ligne pour ranger une valeur

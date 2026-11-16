@@ -1,4 +1,4 @@
-namespace WAD_Demo_Operateur
+namespace WAD_Demo_Operateur.Demos
 {
     // -- INCRÉMENTATION / DÉCRÉMENTATION --  ++ --
     internal static class Incrementation

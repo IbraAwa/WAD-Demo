@@ -1,4 +1,4 @@
-namespace WAD_Demo_Operateur
+namespace WAD_Demo_Operateur.Demos
 {
     // -- IS --  is, is not
     // pose une question sur une valeur et donne un bool (true ou false)

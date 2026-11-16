@@ -1,4 +1,4 @@
-namespace WAD_Demo_Operateur
+namespace WAD_Demo_Operateur.Demos
 {
     // -- COALESCE --  ?? ??=
     // donne une valeur de secours quand une variable est null

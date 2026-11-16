@@ -1,4 +1,4 @@
-namespace WAD_Demo_Operateur
+namespace WAD_Demo_Operateur.Demos
 {
     // -- AFFECTATION ET RACCOURCIS --  = += -= *= /= %=
     internal static class Affectation
