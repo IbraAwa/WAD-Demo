@@ -1,10 +1,11 @@
 ﻿// 1
 
+
 //Raccourcis: double total = 0;
 //Ajouter trois articles (12,50 ; 7,99; 20) avec +=, appliquer 10 % de 
 //remise avec *=, afficher le total
 
-using System.Reflection.Metadata;
+using System.Runtime.CompilerServices;
 
 double total = 0;
 double articleUn = 12.50;
@@ -97,3 +98,11 @@ int nb = int.Parse(Console.ReadLine());
 string result = nb % 2 == 0 ? "Est pair" : "Est Impaire";
 
 Console.WriteLine($"le nombre {nb} {result}");
+
+Voiture v1 = new();
+
+
+if (v1 is { Color: "red", Immatriculation: "v5.5165546" })
+{
+    Console.WriteLine("salut");
+}

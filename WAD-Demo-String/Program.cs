@@ -1,25 +1,26 @@
-﻿
-// String est immuable
-// ça veut dire quu'ne variable de type string est pas modifiable
+﻿// === LES STRING ===
 
+// un string c'est du texte (une chaîne de caractères)
+// il a une particularité importante : il est immuable
 
-// on a crée une variable title
-using System.Text;
+// imaginons mon programme gère les livres d'une bibliothèque
 
-string title = "Seigneur des anneaux";
+// chaque sous-chapitre est dans son propre fichier (une static class)
+// chaque méthode montre UNE seule chose, son nom dit ce qu'elle montre
+// static = pas besoin de faire un new, on appelle directement NomDeLaClasse.Methode()
 
-// on a ajouté un texte qui à sans le savoir crée 
-// une nouvelle variable avec l'ancien texte + le nouveau
-title += " nouvelle valeur";
+using WAD_Demo_String.Demos;
 
-Console.WriteLine(title);
-Console.WriteLine();
+// ==============================================
+// STRING IMMUABLE                   (Immuable.cs)
+// ==============================================
+Console.WriteLine("===== STRING IMMUABLE =====");
+Immuable.PlusEgalCreeUnNouveauStringDemo();
+Immuable.PreuveLeStringDOrigineNeChangePasDemo();
 
-// permet de concaténer des chaine de caractère
-// sans crée de copy a chaque modification
-StringBuilder sb = new StringBuilder();
-
-sb.Append("nouveau texte");
-sb.Append(" encore un nouveau texte");
-
-Console.WriteLine(sb);
+// ==============================================
+// STRINGBUILDER  Append             (AvecStringBuilder.cs)
+// ==============================================
+Console.WriteLine("===== STRINGBUILDER =====");
+AvecStringBuilder.AppendAjouteDuTexteSansCopieDemo();
+AvecStringBuilder.ToStringPourRecupererLeTexteFinalDemo();
