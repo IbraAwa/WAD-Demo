@@ -29,6 +29,9 @@
 
 Console.WriteLine("EXO 073 - Le cast coupe, il n'arrondit pas");
 
+// ✅ CORRECTION : pour voir la correction s'exécuter, enlève les // devant la ligne ci-dessous (Ctrl+K puis Ctrl+U)
+//Correction.Lancer();
+
 // ↓↓↓ écris ton code en dessous ↓↓↓
 
 

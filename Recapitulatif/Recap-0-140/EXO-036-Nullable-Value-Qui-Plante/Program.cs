@@ -30,6 +30,9 @@
 
 Console.WriteLine("EXO 036 - Value sur un null : le programme plante");
 
+// ✅ CORRECTION : pour voir la correction s'exécuter, enlève les // devant la ligne ci-dessous (Ctrl+K puis Ctrl+U)
+//Correction.Lancer();
+
 // ↓↓↓ écris ton code en dessous ↓↓↓
 
 

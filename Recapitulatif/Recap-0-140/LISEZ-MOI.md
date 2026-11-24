@@ -14,7 +14,9 @@ Exercices de révision du PDF « C# · Les fondements (C# 14) », des slides 0 �
   1. écris la ligne ;
   2. passe la souris sur le soulignement rouge et note le code de l'erreur (`CSxxxx`) ou le nom de l'exception en commentaire ;
   3. mets la ligne en commentaire (**Ctrl+K puis Ctrl+C**) pour que le programme compile et tourne.
-- **La correction** est dans `Correction.cs`, dans chaque projet (elle n'est pas compilée). Regarde-la seulement après avoir essayé.
+- **La correction** est dans `Correction.cs`, dans chaque projet. Regarde-la seulement après avoir essayé.
+- **Pour lancer la correction** : dans `Program.cs`, enlève les `//` devant la ligne `//Correction.Lancer();`
+  (sélectionne la ligne puis **Ctrl+K puis Ctrl+U**) et lance avec **F5**. Remets-la en commentaire (**Ctrl+K puis Ctrl+C**) pour retravailler ton code seul.
 
 
 ## PARTIE 1 — La console

@@ -31,6 +31,9 @@
 
 Console.WriteLine("EXO 013 - Déclarer un string");
 
+// ✅ CORRECTION : pour voir la correction s'exécuter, enlève les // devant la ligne ci-dessous (Ctrl+K puis Ctrl+U)
+//Correction.Lancer();
+
 // ↓↓↓ écris ton code en dessous ↓↓↓
 
 

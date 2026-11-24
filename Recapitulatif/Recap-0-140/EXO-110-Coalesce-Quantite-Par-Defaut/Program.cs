@@ -35,6 +35,9 @@
 
 Console.WriteLine("EXO 110 - Coalesce : une quantité de 1 par défaut (slide 126 n°2)");
 
+// ✅ CORRECTION : pour voir la correction s'exécuter, enlève les // devant la ligne ci-dessous (Ctrl+K puis Ctrl+U)
+//Correction.Lancer();
+
 // ↓↓↓ écris ton code en dessous ↓↓↓
 
 

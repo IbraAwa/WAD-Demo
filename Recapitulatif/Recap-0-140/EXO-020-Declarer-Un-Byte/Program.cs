@@ -30,6 +30,9 @@
 
 Console.WriteLine("EXO 020 - Déclarer un byte (de 0 à 255)");
 
+// ✅ CORRECTION : pour voir la correction s'exécuter, enlève les // devant la ligne ci-dessous (Ctrl+K puis Ctrl+U)
+//Correction.Lancer();
+
 // ↓↓↓ écris ton code en dessous ↓↓↓
 
 

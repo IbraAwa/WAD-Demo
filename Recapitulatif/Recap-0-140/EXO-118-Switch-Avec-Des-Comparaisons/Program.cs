@@ -44,6 +44,9 @@
 
 Console.WriteLine("EXO 118 - switch avec des comparaisons (mention et âge)");
 
+// ✅ CORRECTION : pour voir la correction s'exécuter, enlève les // devant la ligne ci-dessous (Ctrl+K puis Ctrl+U)
+//Correction.Lancer();
+
 // ↓↓↓ écris ton code en dessous ↓↓↓
 
 

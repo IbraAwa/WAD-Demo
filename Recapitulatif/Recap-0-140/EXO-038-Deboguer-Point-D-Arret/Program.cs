@@ -40,6 +40,9 @@
 
 Console.WriteLine("EXO 038 - Déboguer : point d'arrêt et variables locales");
 
+// ✅ CORRECTION : pour voir la correction s'exécuter, enlève les // devant la ligne ci-dessous (Ctrl+K puis Ctrl+U)
+//Correction.Lancer();
+
 // ↓↓↓ écris ton code en dessous ↓↓↓
 
 

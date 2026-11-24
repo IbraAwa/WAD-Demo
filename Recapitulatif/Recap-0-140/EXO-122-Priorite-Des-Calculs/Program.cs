@@ -36,6 +36,9 @@
 
 Console.WriteLine("EXO 122 - L'ordre de priorité des calculs (slide 141 n°5)");
 
+// ✅ CORRECTION : pour voir la correction s'exécuter, enlève les // devant la ligne ci-dessous (Ctrl+K puis Ctrl+U)
+//Correction.Lancer();
+
 // ↓↓↓ écris ton code en dessous ↓↓↓
 
 

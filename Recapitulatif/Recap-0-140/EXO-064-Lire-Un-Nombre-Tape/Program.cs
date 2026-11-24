@@ -38,6 +38,9 @@
 
 Console.WriteLine("EXO 064 - Lire un nombre tapé par l'utilisateur");
 
+// ✅ CORRECTION : pour voir la correction s'exécuter, enlève les // devant la ligne ci-dessous (Ctrl+K puis Ctrl+U)
+//Correction.Lancer();
+
 // ↓↓↓ écris ton code en dessous ↓↓↓
 
 

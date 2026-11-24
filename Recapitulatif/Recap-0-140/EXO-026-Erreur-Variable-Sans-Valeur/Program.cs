@@ -30,6 +30,9 @@
 
 Console.WriteLine("EXO 026 - L'erreur CS0165 : variable sans valeur");
 
+// ✅ CORRECTION : pour voir la correction s'exécuter, enlève les // devant la ligne ci-dessous (Ctrl+K puis Ctrl+U)
+//Correction.Lancer();
+
 // ↓↓↓ écris ton code en dessous ↓↓↓
 
 

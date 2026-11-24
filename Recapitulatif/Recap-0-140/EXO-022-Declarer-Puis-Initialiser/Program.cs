@@ -29,6 +29,9 @@
 
 Console.WriteLine("EXO 022 - Déclarer d'abord, donner la valeur ensuite");
 
+// ✅ CORRECTION : pour voir la correction s'exécuter, enlève les // devant la ligne ci-dessous (Ctrl+K puis Ctrl+U)
+//Correction.Lancer();
+
 // ↓↓↓ écris ton code en dessous ↓↓↓
 
 

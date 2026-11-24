@@ -34,6 +34,9 @@
 
 Console.WriteLine("EXO 097 - Division entière, modulo et division (slide 141 n°1)");
 
+// ✅ CORRECTION : pour voir la correction s'exécuter, enlève les // devant la ligne ci-dessous (Ctrl+K puis Ctrl+U)
+//Correction.Lancer();
+
 // ↓↓↓ écris ton code en dessous ↓↓↓
 
 

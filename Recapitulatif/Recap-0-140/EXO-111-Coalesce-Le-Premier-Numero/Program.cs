@@ -37,6 +37,9 @@
 
 Console.WriteLine("EXO 111 - Coalesce en chaîne : le premier numéro dispo (slide 126 n°3)");
 
+// ✅ CORRECTION : pour voir la correction s'exécuter, enlève les // devant la ligne ci-dessous (Ctrl+K puis Ctrl+U)
+//Correction.Lancer();
+
 // ↓↓↓ écris ton code en dessous ↓↓↓
 
 

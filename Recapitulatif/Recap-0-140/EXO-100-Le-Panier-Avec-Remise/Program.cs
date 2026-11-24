@@ -34,6 +34,9 @@
 
 Console.WriteLine("EXO 100 - Le panier avec remise (slide 121 n°1)");
 
+// ✅ CORRECTION : pour voir la correction s'exécuter, enlève les // devant la ligne ci-dessous (Ctrl+K puis Ctrl+U)
+//Correction.Lancer();
+
 // ↓↓↓ écris ton code en dessous ↓↓↓
 
 

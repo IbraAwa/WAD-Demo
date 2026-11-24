@@ -1,5 +1,8 @@
 <Solution>
   <Folder Name="/Demos/">
+    <Project Path="DEMO/DEMO.csproj" Id="80fcf174-b3d0-48ab-8030-5fc2da4dd9c9" />
+    <Project Path="WAD-Demo-Boucle/WAD-Demo-Boucle.csproj" Id="94d2d48c-9611-4f8e-b535-5ab271397c52" />
+    <Project Path="WAD-Demo-Collection/WAD-Demo-Collection.csproj" />
     <Project Path="WAD-Demo-Conversion/WAD-Demo-Conversion.csproj" Id="822e9fc3-9ae9-4564-b5cc-5175a6340956" />
     <Project Path="WAD-Demo-Operateur/WAD-Demo-Operateur.csproj" Id="264dcffa-f287-4b91-b426-d6509c66a20b" />
     <Project Path="WAD-Demo-Recap1/WAD-Demo-Recap1.csproj" Id="6742861d-1c06-476d-a7ae-8f89f7a55653" />
@@ -9,6 +12,7 @@
   </Folder>
   <Folder Name="/Exercices/">
     <Project Path="EXO-1-Fiche-Utilisateur/EXO-1-Fiche-Utilisateur.csproj" />
+    <Project Path="EXO-10-boucle/EXO-10-boucle.csproj" Id="616bdd5d-39dd-4b20-a1f0-2e3d1507d16f" />
     <Project Path="EXO-2-TypeVariale/EXO-2-TypeVariale.csproj" Id="f3c3debd-02ea-42cc-accd-64c2135a9fd8" />
     <Project Path="EXO-3-Recap/EXO-3-Recap.csproj" />
     <Project Path="EXO-4-Conversion/EXO-4-Conversion.csproj" Id="325db5b9-e2eb-425c-8159-839897974a95" />
@@ -16,6 +20,7 @@
     <Project Path="EXO-6-Operateur/EXO-6-Operateur.csproj" Id="7ecaa8c5-d48c-4506-a0db-ac2cd50649ac" />
     <Project Path="EXO-8-COALESCE/EXO-8-COALESCE.csproj" Id="3161f18e-212e-49c7-b473-dec19b1c9f7f" />
     <Project Path="EXO-9-is-as/EXO-9-is-as.csproj" Id="7e61c14e-6ce7-4d10-be36-c2a4c6d5aaf2" />
+    <Project Path="EXO/EXO.csproj" Id="2174739f-4fad-451f-b919-ab0a22e95946" />
   </Folder>
   <Folder Name="/Recapitulatif/" />
   <Folder Name="/Recapitulatif/Recap-0-140/">
@@ -143,9 +148,5 @@
     <Project Path="Recapitulatif/Recap-0-140/EXO-121-L-Operateur-As/EXO-121-L-Operateur-As.csproj" />
     <Project Path="Recapitulatif/Recap-0-140/EXO-122-Priorite-Des-Calculs/EXO-122-Priorite-Des-Calculs.csproj" />
     <Project Path="Recapitulatif/Recap-0-140/EXO-123-Priorite-ET-Avant-OU/EXO-123-Priorite-ET-Avant-OU.csproj" />
-  </Folder>
-  <Folder Name="/Récapitulatif/" />
-  <Folder Name="/Récapitulatif/Recap-0-140/">
-    <Project Path="Exo-1-recap/Exo-1-recap.csproj" Id="168c3d65-4c6b-406a-900f-ffdfc2428ad8" />
   </Folder>
 </Solution>

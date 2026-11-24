@@ -8,10 +8,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <!-- la correction est visible dans le projet mais n'est pas compilée -->
-  <ItemGroup>
-    <Compile Remove="Correction.cs" />
-    <None Include="Correction.cs" />
-  </ItemGroup>
-
 </Project>

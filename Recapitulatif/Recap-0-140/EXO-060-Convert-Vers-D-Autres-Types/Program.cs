@@ -37,6 +37,9 @@
 
 Console.WriteLine("EXO 060 - Convert vers double, bool, et l'arrondi");
 
+// ✅ CORRECTION : pour voir la correction s'exécuter, enlève les // devant la ligne ci-dessous (Ctrl+K puis Ctrl+U)
+//Correction.Lancer();
+
 // ↓↓↓ écris ton code en dessous ↓↓↓
 
 

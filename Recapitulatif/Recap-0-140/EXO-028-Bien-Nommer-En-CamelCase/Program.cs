@@ -34,6 +34,9 @@
 
 Console.WriteLine("EXO 028 - Bien nommer ses variables (camelCase)");
 
+// ✅ CORRECTION : pour voir la correction s'exécuter, enlève les // devant la ligne ci-dessous (Ctrl+K puis Ctrl+U)
+//Correction.Lancer();
+
 // ↓↓↓ écris ton code en dessous ↓↓↓
 
 

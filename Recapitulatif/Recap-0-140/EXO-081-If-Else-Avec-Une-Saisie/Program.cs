@@ -31,6 +31,9 @@
 
 Console.WriteLine("EXO 081 - if ... else avec ce que l'utilisateur tape");
 
+// ✅ CORRECTION : pour voir la correction s'exécuter, enlève les // devant la ligne ci-dessous (Ctrl+K puis Ctrl+U)
+//Correction.Lancer();
+
 // ↓↓↓ écris ton code en dessous ↓↓↓
 
 

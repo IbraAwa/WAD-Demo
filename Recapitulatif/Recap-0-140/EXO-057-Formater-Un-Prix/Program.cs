@@ -40,6 +40,9 @@
 
 Console.WriteLine("EXO 057 - Formater un prix : N2, C et l'alignement");
 
+// ✅ CORRECTION : pour voir la correction s'exécuter, enlève les // devant la ligne ci-dessous (Ctrl+K puis Ctrl+U)
+//Correction.Lancer();
+
 // ↓↓↓ écris ton code en dessous ↓↓↓
 
 

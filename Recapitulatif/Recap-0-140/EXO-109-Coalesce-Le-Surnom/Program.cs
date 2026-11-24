@@ -34,6 +34,9 @@
 
 Console.WriteLine("EXO 109 - Coalesce ?? : une valeur de secours (slide 126 n°1)");
 
+// ✅ CORRECTION : pour voir la correction s'exécuter, enlève les // devant la ligne ci-dessous (Ctrl+K puis Ctrl+U)
+//Correction.Lancer();
+
 // ↓↓↓ écris ton code en dessous ↓↓↓
 
 

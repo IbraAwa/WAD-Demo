@@ -31,6 +31,9 @@
 
 Console.WriteLine("EXO 071 - Le bug des 24 % au lieu de 25 %");
 
+// ✅ CORRECTION : pour voir la correction s'exécuter, enlève les // devant la ligne ci-dessous (Ctrl+K puis Ctrl+U)
+//Correction.Lancer();
+
 // ↓↓↓ écris ton code en dessous ↓↓↓
 
 

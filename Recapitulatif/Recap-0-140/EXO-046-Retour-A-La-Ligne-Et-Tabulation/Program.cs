@@ -34,6 +34,9 @@
 
 Console.WriteLine("EXO 046 - Retour à la ligne et tabulation dans un texte");
 
+// ✅ CORRECTION : pour voir la correction s'exécuter, enlève les // devant la ligne ci-dessous (Ctrl+K puis Ctrl+U)
+//Correction.Lancer();
+
 // ↓↓↓ écris ton code en dessous ↓↓↓
 
 

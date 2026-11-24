@@ -37,6 +37,9 @@
 
 Console.WriteLine("EXO 045 - Le séparateur _ pour les grands nombres");
 
+// ✅ CORRECTION : pour voir la correction s'exécuter, enlève les // devant la ligne ci-dessous (Ctrl+K puis Ctrl+U)
+//Correction.Lancer();
+
 // ↓↓↓ écris ton code en dessous ↓↓↓
 
 

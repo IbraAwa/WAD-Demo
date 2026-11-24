@@ -40,6 +40,9 @@
 
 Console.WriteLine("EXO 113 - typeof et nameof (slide 126 n°5)");
 
+// ✅ CORRECTION : pour voir la correction s'exécuter, enlève les // devant la ligne ci-dessous (Ctrl+K puis Ctrl+U)
+//Correction.Lancer();
+
 // ↓↓↓ écris ton code en dessous ↓↓↓
 
 
