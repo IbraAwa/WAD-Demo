@@ -10,6 +10,9 @@ en un coup d'œil quelles chambres sont libres, occupées ou à nettoyer, **enre
 noter leurs **consommations** (minibar, restaurant, spa...), **faire la facture** à leur départ (check-out),
 organiser le **ménage** et la **maintenance**, reconnaître les **clients fidèles** et suivre l'activité de l'hôtel.
 
+L'hôtel tient un **fichier clients** : chaque client est identifié par le **numéro de sa carte d'identité**, qui est **unique**.
+Le programme ne doit **jamais** créer deux fiches avec le même numéro.
+
 Le programme **simule le temps** : on ne va pas attendre de vrais jours, on fait avancer un compteur de jours.
 
 À toi de concevoir le programme : quelles `enum`, quelles `struct`, quelles collections, quelles méthodes.
@@ -24,7 +27,7 @@ Le labo est gros : avance **par jalons**, et ne commence un jalon que quand le p
 | Jalon | Contenu | Temps indicatif |
 |---|---|---|
 | 1 | Les types, la création des chambres par boucles, le calendrier, le plan de l'hôtel, les méthodes de saisie, le menu | 1 h 30 |
-| 2 | Le check-in, les clients présents, faire passer les jours | 1 h 45 |
+| 2 | Le fichier clients (numéro unique), le check-in, les clients présents, faire passer les jours | 1 h 45 |
 | 3 | Le check-out et la facture complète (semaine / week-end, adultes / enfants, remises), l'historique | 2 h 15 |
 | 4 | Les consommations, le ménage, la maintenance | 1 h 15 |
 | 5 | Les clients fidèles, les statistiques, quitter | 1 h 15 |
@@ -86,14 +89,18 @@ Libres : 7 / 11 en service — à nettoyer : 1 — hors service : 1
 ```
 
 ### 2. Arrivée d'un client (check-in)
-1. La réceptionniste saisit le **nom du client**, le **type de chambre** voulu, le **nombre d'adultes** (au moins 1), le **nombre d'enfants** (0 ou plus),
+1. La réceptionniste saisit d'abord le **numéro de carte d'identité** du client (exactement **12 chiffres**, sinon le programme redemande).
+   - Si ce numéro est **déjà dans le fichier clients** : le programme affiche `Client connu : M. Lambert` et ne redemande **pas** le nom.
+   - Sinon : la réceptionniste saisit le **nom**, et une **nouvelle fiche** est créée dans le fichier clients avec ce numéro.
+   - Si ce client **occupe déjà une chambre** : `M. Lambert occupe déjà la chambre 103.` et le check-in s'arrête.
+2. La réceptionniste saisit le **type de chambre** voulu, le **nombre d'adultes** (au moins 1), le **nombre d'enfants** (0 ou plus),
    le **nombre de nuits prévues** (de 1 à 30) et si le client veut le **petit-déjeuner** (`O`/`N`).
-2. Adultes + enfants ne peuvent pas dépasser la capacité du type de chambre.
-3. Le programme attribue **la première chambre libre** de ce type (le plus petit numéro). Une chambre à nettoyer ou hors service n'est **pas** libre.
+3. Adultes + enfants ne peuvent pas dépasser la capacité du type de chambre.
+4. Le programme attribue **la première chambre libre** de ce type (le plus petit numéro). Une chambre à nettoyer ou hors service n'est **pas** libre.
    S'il n'y en a plus : `Désolé, plus aucune Suite n'est libre.` — et s'il en reste à nettoyer : `(1 Suite attend le ménage.)`
-4. Le séjour retient le **jour d'arrivée**.
-5. Le programme affiche le numéro de la chambre, le **jour de départ prévu** et une **estimation** du prix du séjour (sans les consommations, qu'on ne connaît pas encore).
-6. **Jalon 5 :** si le client est un **client fidèle**, le programme le salue et annonce sa remise (voir *Clients fidèles*).
+5. Le séjour retient le **numéro de carte du client** et le **jour d'arrivée**.
+6. Le programme affiche le numéro de la chambre, le **jour de départ prévu** et une **estimation** du prix du séjour (sans les consommations, qu'on ne connaît pas encore).
+7. **Jalon 5 :** si le client est un **client fidèle**, le programme le salue et annonce sa remise (voir *Clients fidèles*).
 
 ### 3. Départ d'un client (check-out)
 1. La réceptionniste saisit le **numéro de la chambre**.
@@ -141,6 +148,13 @@ Les consommations apparaissent sur la facture, une ligne par consommation.
 - La **durée moyenne** d'un séjour (en nuits, 1 chiffre après la virgule).
 - Le **meilleur client** : celui qui a dépensé le plus au total (tous séjours confondus).
 
+### 10. Fichier clients (jalon 5)
+- **Afficher** toutes les fiches : numéro de carte, nom, nombre de séjours terminés, total dépensé, et `★ FIDÈLE` pour un client fidèle.
+- **Consulter** une fiche à partir du numéro de carte (sans parcourir tout le fichier) : en plus, la liste de ses séjours terminés (chambre, nuits, montant).
+- **Créer** une fiche à l'avance (par exemple pour une réservation par téléphone) : un numéro déjà utilisé est refusé :
+  `Le numéro 591234567890 appartient déjà à M. Lambert.`
+- **Corriger le nom** d'une fiche (faute de frappe à l'arrivée).
+
 ### 0. Quitter
 Si des clients sont encore présents, affiche combien et demande une confirmation avant de quitter.
 
@@ -184,7 +198,8 @@ TOTAL                                   892,70 €
 
 ## ⭐ Clients fidèles (jalon 5)
 
-- Le programme retient, pour chaque nom de client (sans tenir compte des majuscules), le **nombre de séjours terminés** et le **total dépensé**.
+- La fiche de chaque client (dans le fichier clients) retient le **nombre de séjours terminés** et le **total dépensé**. Elle est mise à jour à chaque check-out.
+- C'est le **numéro de carte** qui identifie le client, pas le nom : deux « Dupont » différents ne partagent pas leur fidélité.
 - Un client qui a **déjà terminé au moins 2 séjours** est un **client fidèle** : à partir de son **3e séjour**, il reçoit la **remise fidélité** de 5 %.
 - Au check-in, le programme l'annonce : `Bon retour parmi nous, M. Lambert ! 3e séjour : 5 % de remise fidélité sur les nuitées.`
 
@@ -193,9 +208,15 @@ TOTAL                                   892,70 €
 ## 🔧 Contraintes techniques
 
 - Au moins **trois `enum`** : le type de chambre, l'état d'une chambre, le service.
-- Au moins **trois `struct`** (par exemple une chambre, un séjour, une consommation, une facture).
-- Les chambres sont rangées dans une **collection vue au cours** (tableau ou `List<T>`), remplie par des **boucles imbriquées**.
-- Au moins **deux `Dictionary<TKey, TValue>`**. Le numéro de chambre ferait une très bonne clé pour les séjours en cours...
+  Ce sont des `enum` **classiques**, comme au cours : une variable de ce type contient **une seule valeur à la fois**
+  (une chambre a un seul état ; plusieurs consommations = plusieurs éléments dans une collection).
+- Au moins **quatre `struct`** (par exemple une chambre, un client, un séjour, une consommation, une facture).
+- **Les chambres sont rangées dans un `Dictionary<int, Chambre>`** dont la **clé est le numéro de chambre**, rempli par des **boucles imbriquées**.
+  Pour afficher le plan étage par étage, on **calcule** le numéro de chaque chambre et on la retrouve **par sa clé**.
+- **Le fichier clients est un `Dictionary<string, Client>`** dont la **clé est le numéro de carte d'identité**.
+  Avant chaque création de fiche, on vérifie que la clé est libre : le programme ne doit **jamais planter** sur un numéro en double.
+- Les **séjours en cours** sont dans un `Dictionary<int, Sejour>` (numéro de chambre → séjour).
+- **L'historique des factures et les consommations sont rangés dans des `List<T>`** (on les ajoute à la suite et on les parcourt dans l'ordre).
 - **Chaque option du menu est une méthode.** Le code principal ne contient presque que la boucle du menu.
 - Le prix, le prix du week-end et la capacité d'un type de chambre, ainsi que le prix d'un service, sont donnés par **des méthodes** qui reçoivent l'`enum` (un `switch` est parfait).
 - Au moins **une méthode utilise un paramètre `out`** (par exemple pour chercher une chambre libre et dire si on en a trouvé une).
@@ -211,6 +232,7 @@ TOTAL                                   892,70 €
 **Minimum attendu (jalons 1 à 3)**
 - [ ] Les 12 chambres sont créées par des boucles, avec les bons numéros, types et prix.
 - [ ] Le plan de l'hôtel s'affiche étage par étage, du 3e au 1er, avec le jour et son nom.
+- [ ] Le check-in reconnaît un client déjà dans le fichier, crée une fiche pour un nouveau, et refuse un client qui occupe déjà une chambre.
 - [ ] Le check-in respecte la capacité (adultes + enfants) et attribue la première chambre **libre** du bon type.
 - [ ] Faire passer des jours affiche les départs prévus.
 - [ ] Le check-out refuse une chambre inexistante ou non occupée.
@@ -221,6 +243,7 @@ TOTAL                                   892,70 €
 - [ ] Les 4 exemples donnent les bons totaux, consommations comprises.
 - [ ] Une chambre à nettoyer ou hors service n'est jamais attribuée.
 - [ ] Le client fidèle est reconnu au check-in et sa remise est appliquée.
+- [ ] Le fichier clients refuse **toujours** un numéro de carte déjà utilisé, et une fiche se consulte par son numéro.
 - [ ] Les statistiques sont justes (teste avec au moins 4 séjours terminés).
 - [ ] Aucune saisie ne fait planter le programme.
 - [ ] Le code est découpé en méthodes avec des noms clairs.

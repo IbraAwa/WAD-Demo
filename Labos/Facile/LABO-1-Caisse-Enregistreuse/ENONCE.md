@@ -14,16 +14,16 @@ Le programme surveille aussi le **stock** des produits. Le soir, elle **ferme la
 
 | Notion | Où ? |
 |---|---|
-| `enum` | la catégorie d'un produit, le mode de paiement |
+| `enum` (classique) | la catégorie d'un produit, le mode de paiement |
 | `struct` (et le piège de la copie !) | un produit, une vente |
-| `List<T>` | le catalogue, les ventes de la journée |
-| `Dictionary<TKey, TValue>` | le panier, les quantités vendues, les totaux par catégorie |
+| `Dictionary<TKey, TValue>` | **le catalogue** (code unique → produit), le panier, les quantités vendues, les totaux par catégorie |
+| `List<T>` | les ventes de la journée, les produits à recommander |
 | Tableau | les billets et les pièces pour rendre la monnaie |
 | Méthodes (`static`, paramètres, `return`) | presque tout le programme |
 | Boucles `for`, `foreach`, `while`, `do ... while` | catalogue, scan, menu, monnaie |
 | `if` / `else if` / `else`, `switch` | remises, promotions, menu |
 | `TryParse` | aucune saisie ne doit faire planter le programme |
-| Division entière et modulo | la promotion « 3 pour 2 » |
+| Division entière | la promotion « 3 pour 2 » |
 | Interpolation, alignement et format `N2` | ticket et rapport |
 
 ## 📏 Règles du jeu
@@ -38,7 +38,7 @@ Le programme surveille aussi le **stock** des produits. Le soir, elle **ferme la
 |---|---|---|
 | 1 | Un client passe en caisse | 3 h |
 | 2 | Une journée entière : le menu et les ventes | 1 h |
-| 3 | Le stock | 1 h 30 |
+| 3 | Le stock et les nouveaux produits | 1 h 30 |
 | 4 | Promotions et paiement | 1 h 30 |
 | 5 | Le rapport de la journée | 1 h |
 
@@ -78,12 +78,15 @@ Le programme surveille aussi le **stock** des produits. Le soir, elle **ferme la
 
 ---
 
-## Étape 3 — Le catalogue
+## Étape 3 — Le catalogue : un dictionnaire
 
-🎯 Ranger tous les produits du magasin dans une liste.
+🎯 Chaque produit a un **code unique** : deux produits ne peuvent jamais avoir le même code. C'est exactement ce que fait un **dictionnaire** : chaque **clé** y est unique.
 
-1. Dans `Program.cs`, sous la ligne « écris ton code en dessous », crée une `List<Produit>` nommée `catalogue`.
-2. Ajoute-y ces 8 produits (crée chaque produit avec `new()` et des accolades, comme dans la démo sur les struct) :
+1. Dans `Program.cs`, sous la ligne « écris ton code en dessous », crée un `Dictionary<int, Produit>` nommé `catalogue` :
+   - la **clé** = le code du produit ;
+   - la **valeur** = le produit lui-même.
+2. Ajoute-y ces 8 produits avec `Add` (crée chaque produit avec `new()` et des accolades, comme dans la démo sur les struct).
+   La clé doit toujours être **égale** au champ `Code` du produit.
 
 | Code | Nom | Prix | Catégorie |
 |---|---|---|---|
@@ -98,6 +101,9 @@ Le programme surveille aussi le **stock** des produits. Le soir, elle **ferme la
 
 💡 Attention au suffixe des nombres `decimal`.
 
+3. 🧪 **Expérience :** ajoute temporairement un 9e produit **avec la clé 1** (déjà utilisée) et lance le programme. Il **plante** : `Add` refuse une clé qui existe déjà.
+   Note le nom de l'erreur, puis **supprime** cette ligne. Retiens : avant d'ajouter une clé qui vient de l'utilisateur, on vérifie **toujours** qu'elle n'existe pas déjà.
+
 ✅ **Vérifie :** affiche le nombre de produits du catalogue → `Le catalogue contient 8 produits`. Ensuite, supprime cette ligne de test.
 
 ---
@@ -106,8 +112,9 @@ Le programme surveille aussi le **stock** des produits. Le soir, elle **ferme la
 
 🎯 Ta première méthode : elle affiche le catalogue.
 
-1. Tout en bas de `Program.cs`, crée une méthode `static` qui **ne retourne rien** (`void`), nommée `AfficherCatalogue`, qui reçoit **la liste des produits** en paramètre.
-2. Dedans, affiche un titre, puis parcours la liste avec un `foreach` et affiche chaque produit sur une ligne.
+1. Tout en bas de `Program.cs`, crée une méthode `static` qui **ne retourne rien** (`void`), nommée `AfficherCatalogue`, qui reçoit **le dictionnaire des produits** en paramètre.
+2. Dedans, affiche un titre, puis parcours le dictionnaire avec un `foreach` et affiche chaque produit sur une ligne.
+   💡 Chaque élément parcouru a une `.Key` (le code) et une `.Value` (le produit).
 3. Pour que les colonnes soient bien alignées, aligne le nom sur 15 caractères (l'alignement `,-15` vu avec l'interpolation).
 4. Appelle cette méthode dans ton code principal.
 
@@ -142,22 +149,24 @@ Supprime ensuite ce test.
 
 ---
 
-## Étape 6 — Méthode `TrouverIndexProduit`
+## Étape 6 — Retrouver un produit grâce à son code
 
-🎯 Quand le caissier tape un code, il faut retrouver **la position** du produit dans le catalogue.
+🎯 Avec un dictionnaire, pas besoin de parcourir tout le catalogue pour trouver un produit : on le demande directement **par sa clé**.
 
-1. Crée une méthode `static` nommée `TrouverIndexProduit` qui reçoit **le catalogue** et **un code** (`int`), et **retourne un `int`**.
-2. Parcours le catalogue avec une boucle `for` (tu as besoin de l'index !).
-3. Si le `Code` du produit à la position `i` est égal au code cherché, **retourne `i`**.
-4. Si la boucle se termine sans rien trouver, **retourne `-1`** (convention : « pas trouvé »).
+1. Teste provisoirement, dans le code principal :
+   - afficher le nom du produit dont la clé est 6 (avec les crochets, comme pour un tableau) → `Jus d'orange` ;
+   - afficher si la clé 42 existe (`ContainsKey`) → `False` ;
+   - afficher le nom du produit dont la clé est 42 → le programme **plante** (clé introuvable).
+2. Conclusion à retenir : **on vérifie toujours avec `ContainsKey` avant de lire une clé tapée par l'utilisateur.**
+3. Supprime ces tests.
 
-✅ **Vérifie :** `TrouverIndexProduit(catalogue, 6)` doit valoir `5`, et `TrouverIndexProduit(catalogue, 42)` doit valoir `-1`.
+✅ **Vérifie :** tu as vu les 3 résultats ci-dessus, et tu sais expliquer pourquoi le 3e plante.
 
 ---
 
 ## Étape 7 — Le panier
 
-🎯 Pendant le passage en caisse, on retient **quel produit** et **combien**. Un dictionnaire est parfait pour ça.
+🎯 Pendant le passage en caisse, on retient **quel produit** et **combien**. Un dictionnaire est encore parfait pour ça.
 
 1. Dans le code principal (après l'affichage du catalogue), crée un `Dictionary<int, int>` nommé `panier`.
    - la **clé** = le code du produit
@@ -175,10 +184,9 @@ Supprime ensuite ce test.
 2. À chaque tour :
    1. demande le code avec `DemanderEntier` : `Code du produit (0 pour terminer) :`
    2. si le code vaut 0 → ne fais rien de plus (la boucle va s'arrêter) ;
-   3. sinon, cherche l'index avec `TrouverIndexProduit` ;
-   4. si l'index vaut -1 → affiche `Code inconnu !` ;
-   5. sinon, demande la quantité avec `DemanderEntier`. Si la quantité est **inférieure ou égale à 0** → affiche `Quantité invalide !` ;
-   6. sinon :
+   3. sinon, si le code n'est **pas une clé** du catalogue → affiche `Code inconnu !` ;
+   4. sinon, demande la quantité avec `DemanderEntier`. Si la quantité est **inférieure ou égale à 0** → affiche `Quantité invalide !` ;
+   5. sinon :
       - si le code est **déjà** dans le panier (`ContainsKey`) → **ajoute** la quantité à celle qui y est déjà ;
       - sinon → **crée** la clé avec cette quantité ;
       - affiche `+ 3 x Pomme` (quantité et nom du produit).
@@ -196,8 +204,12 @@ Quantité : 2
 Code du produit (0 pour terminer) : 6
 Quantité : 1
 + 1 x Jus d'orange
+Code du produit (0 pour terminer) : 1
+Quantité : 2
++ 2 x Pomme
 Code du produit (0 pour terminer) : 0
 ```
+(Le panier contient maintenant 5 pommes, et pas deux lignes « Pomme ».)
 
 ---
 
@@ -208,11 +220,11 @@ Code du produit (0 pour terminer) : 0
 1. Crée une méthode `static` nommée `AfficherTicket` qui reçoit **le catalogue** et **le panier**, et **retourne le total** (`decimal`).
 2. Déclare une variable `total` qui commence à 0.
 3. Parcours le panier avec un `foreach` (chaque élément a une `.Key` et une `.Value`).
-4. Pour chaque ligne : retrouve le produit (avec `TrouverIndexProduit`), calcule le prix de la ligne (quantité × prix), ajoute-le au total, et affiche la ligne.
+4. Pour chaque ligne : retrouve le produit dans le catalogue **grâce au code**, calcule le prix de la ligne (quantité × prix), ajoute-le au total, et affiche la ligne.
 5. Affiche le total, puis **retourne-le**.
 6. Dans le code principal, après la boucle de scan, appelle la méthode et range le résultat dans une variable `total`.
 
-✅ **Vérifie :**
+✅ **Vérifie** (3 pommes, 2 chips, 1 jus d'orange) :
 ```
 ===== TICKET =====
 3 x Pomme          =    1,50 €
@@ -285,9 +297,9 @@ Merci et à bientôt au Petit Marché !
 
 ---
 
-## Étape 13 — La structure `Vente`
+## Étape 13 — La structure `Vente` et la liste des ventes
 
-🎯 Chaque passage en caisse produit une **vente**. On veut toutes les garder pour le rapport du soir.
+🎯 Chaque passage en caisse produit une **vente**. On veut toutes les garder, **dans l'ordre**, pour le rapport du soir : c'est le rôle d'une **liste**.
 
 1. Ajoute un fichier `Vente.cs` avec une `struct` `Vente` et ces champs publics :
 
@@ -299,6 +311,8 @@ Merci et à bientôt au Petit Marché !
 | `MontantPaye` | `decimal` | le total à payer après remise |
 
 2. Dans le code principal, crée une `List<Vente>` nommée `ventes` (juste après le catalogue).
+
+💡 Pourquoi une liste ici et pas un dictionnaire ? Les ventes n'ont pas besoin d'être retrouvées par une clé : on les ajoute **à la suite** et on les parcourt **dans l'ordre**. Le n° de ticket se déduit du nombre de ventes.
 
 ✅ **Vérifie :** le programme compile.
 
@@ -364,7 +378,7 @@ Merci et à bientôt au Petit Marché !
 
 ---
 
-# PARTIE 3 — Le stock
+# PARTIE 3 — Le stock et les nouveaux produits
 
 ## Étape 17 — Le stock de chaque produit
 
@@ -401,7 +415,7 @@ Merci et à bientôt au Petit Marché !
 
 1. Dans le scan, avant d'ajouter au panier :
    - si le stock du produit vaut 0 → affiche `Jus d'orange est en rupture de stock !` ;
-   - sinon, calcule **ce qui reste disponible** = stock − quantité **déjà dans le panier** pour ce produit ;
+   - sinon, calcule **ce qui reste disponible** = stock − quantité **déjà dans le panier** pour ce produit (0 si le produit n'est pas encore dans le panier) ;
    - si la quantité demandée est plus grande que ce qui reste → affiche `Stock insuffisant : il reste seulement 2 Jus d'orange.` et n'ajoute rien.
 
 ✅ **Vérifie :** scanne 2 jus d'orange (accepté), puis encore 3 (refusé : il en reste 2), puis 2 (accepté).
@@ -414,24 +428,24 @@ Merci et à bientôt au Petit Marché !
 
 1. Crée une méthode `static void RetirerDuStock` qui reçoit **le catalogue** et **le panier**.
 2. Pour chaque ligne du panier, diminue le stock du produit correspondant.
-   **Attention :** si tu essaies de modifier directement le champ d'un produit dans la liste, Visual Studio refuse (erreur **CS1612**).
-   Pourquoi ? Parce que `Produit` est une **struct** (type valeur) : lire un élément de la liste te donne une **COPIE**.
+   **Attention :** si tu essaies de modifier directement le champ d'un produit **dans le dictionnaire**, Visual Studio refuse (erreur **CS1612**).
+   Pourquoi ? Parce que `Produit` est une **struct** (type valeur) : lire une valeur du dictionnaire te donne une **COPIE**.
    👉 La bonne méthode, en 3 temps :
-   1. copie le produit de la liste dans une variable ;
+   1. copie le produit du dictionnaire dans une variable ;
    2. modifie la variable ;
-   3. remets la variable dans la liste, **à la même position**.
+   3. remets la variable dans le dictionnaire, **avec la même clé** (avec les crochets, pas avec `Add` !).
 3. Appelle-la dans `PasserEnCaisse`, **après** le paiement.
 
-💡 Pourquoi la modification se voit-elle en dehors de la méthode ? Parce que `List<T>` est un **type référence** : la méthode travaille sur la même liste que le code principal.
+💡 Pourquoi la modification se voit-elle en dehors de la méthode ? Parce que `Dictionary<TKey, TValue>` est un **type référence** : la méthode travaille sur le même dictionnaire que le code principal.
 
-✅ **Vérifie :** vends 3 pommes, reviens au menu, affiche le catalogue → stock des pommes : 47.
+✅ **Vérifie :** vends 3 pommes, reviens au menu, affiche le catalogue → stock des pommes : 47. Le catalogue contient toujours 8 produits (pas de doublon).
 
 ---
 
 ## Étape 20 — Réapprovisionner (choix 3)
 
 1. Crée une méthode `static void Reapprovisionner` qui reçoit le catalogue.
-2. Elle demande le code du produit. Si le code n'existe pas → `Code inconnu !` et la méthode s'arrête.
+2. Elle demande le code du produit. Si ce code n'est pas une clé du catalogue → `Code inconnu !` et la méthode s'arrête.
 3. Elle demande la quantité livrée (entre 1 et 500), l'ajoute au stock (attention au piège de la struct !) et affiche :
    `Jus d'orange : stock passé de 4 à 28.`
 4. Appelle-la dans le `case 3`.
@@ -440,29 +454,36 @@ Merci et à bientôt au Petit Marché !
 
 ---
 
-## Étape 21 — Ajouter un produit au catalogue (choix 4)
+## Étape 21 — Ajouter un produit au catalogue (choix 4) — un code unique !
+
+🎯 Le magasin reçoit un nouveau produit. C'est **la caissière qui choisit son code**... et le programme doit **refuser un code déjà utilisé**.
 
 1. Crée une méthode `static void AjouterProduit` qui reçoit le catalogue.
-2. Elle demande le **nom**. On redemande tant que :
+2. Elle demande le **code** (entre 1 et 999). **Tant que** ce code est déjà une clé du catalogue, elle affiche
+   `Le code 3 est déjà utilisé par Carotte.` et redemande.
+   ⚠️ Ne compte pas sur `Add` pour faire le contrôle : il ferait **planter** le programme (étape 3).
+3. Elle demande le **nom**. On redemande tant que :
    - le nom est vide (ou ne contient que des espaces) 💡 `string.IsNullOrWhiteSpace` ;
    - **ou** un produit porte déjà ce nom, sans tenir compte des majuscules (`pomme` = `Pomme`) → `Ce produit existe déjà.`
-     💡 Écris une petite méthode `NomExisteDeja` qui retourne un `bool`.
-3. Elle demande le **prix** avec `DemanderMontant` ; il doit être **strictement positif**.
-4. Pour la **catégorie** : affiche les catégories numérotées (le numéro d'une valeur d'enum s'obtient avec un cast en `int`), demande le numéro avec `DemanderEntierEntre`, puis transforme le numéro en `Categorie` avec un cast.
+     💡 Écris une petite méthode `NomExisteDeja` qui retourne un `bool`. Ici, le nom n'est **pas** une clé : il faut parcourir les produits.
+4. Elle demande le **prix** avec `DemanderMontant` ; il doit être **strictement positif**.
+5. Pour la **catégorie** : affiche les catégories numérotées (le numéro d'une valeur d'enum s'obtient avec un cast en `int`), demande le numéro avec `DemanderEntierEntre`, puis transforme le numéro en `Categorie` avec un cast.
    ```
    0. Fruit
    1. Legume
    2. Boisson
    3. Snack
    ```
-5. Elle demande le **stock de départ** (entre 0 et 500).
-6. Le **code** n'est pas demandé : c'est le **plus grand code existant + 1**. 💡 Écris une méthode `ProchainCode`.
-7. Ajoute le produit et affiche `Kiwi a été ajouté avec le code 9.`
+6. Elle demande le **stock de départ** (entre 0 et 500).
+7. Ajoute le produit au dictionnaire (la clé = le code) et affiche `Kiwi a été ajouté avec le code 20.`
 8. Appelle-la dans le `case 4`.
 
-✅ **Vérifie :** ajoute `Kiwi`, 0,45 €, Fruit, stock 60 → il apparaît dans le catalogue avec le code 9, et tu peux le vendre. Essaie d'ajouter `POMME` → refusé.
+✅ **Vérifie :**
+- Code `3` → refusé (`déjà utilisé par Carotte`), puis code `20` → accepté.
+- Nom `POMME` → refusé, puis `Kiwi` → accepté. 0,45 €, Fruit, stock 60.
+- Kiwi apparaît dans le catalogue avec le code 20, et tu peux le vendre en tapant 20.
 
-🏁 **Fin de la partie 3.** Le stock est suivi en temps réel.
+🏁 **Fin de la partie 3.** Le stock est suivi en temps réel et aucun code ne peut être utilisé deux fois.
 
 ---
 
@@ -573,9 +594,10 @@ Monnaie à rendre : 37,30 €
    3. le **panier moyen** (recette ÷ nombre de clients) ⚠️ attention s'il n'y a eu aucun client !
    4. le **plus gros ticket** (numéro et montant) ;
    5. le total des **remises** accordées ;
-   6. le **produit le plus vendu** (nom et quantité) ;
-   7. le chiffre d'affaires **par catégorie**, calculé avec un `Dictionary<Categorie, decimal>` (quantité vendue × prix du catalogue, sans tenir compte des promotions ni des remises) ;
-   8. les **produits à recommander** : ceux dont le stock est inférieur à 5.
+   6. les **3 derniers tickets**, du plus récent au plus ancien (💡 une boucle `for` qui part de la fin de la liste ; attention s'il y a moins de 3 ventes) ;
+   7. le **produit le plus vendu** (nom et quantité) ;
+   8. le chiffre d'affaires **par catégorie**, calculé avec un `Dictionary<Categorie, decimal>` (quantité vendue × prix du catalogue, sans tenir compte des promotions ni des remises) ;
+   9. les **produits à recommander** (stock inférieur à 5) : range-les d'abord dans une **`List<Produit>`**, puis affiche-les. Si la liste est vide → `Aucun produit à recommander.`
 3. Appelle-la dans le `case 5`, et aussi **automatiquement** quand la caisse est fermée (étape 16).
 
 ✅ **Vérifie** (exemple, tes chiffres dépendent de tes ventes) :
@@ -588,6 +610,7 @@ Recette totale        :    45,60 €
 Panier moyen          :    15,20 €
 Plus gros ticket      : n° 2 (25,10 €)
 Remises accordées     :     1,32 €
+Derniers tickets      : n° 3 (8,20 €) · n° 2 (25,10 €) · n° 1 (12,30 €)
 ---------------------------------
 Produit le plus vendu : Pomme (12)
 Ventes par catégorie :
@@ -602,7 +625,7 @@ S'il n'y a encore eu aucune vente : `Aucune vente pour le moment.`
 
 🎉 **Si tout fonctionne : le labo est terminé !**
 
-Fais une dernière passe : essaie de **casser** ton programme (lettres, nombres négatifs, codes inexistants, stock à 0, panier vide...). Il ne doit jamais planter.
+Fais une dernière passe : essaie de **casser** ton programme (lettres, nombres négatifs, codes inexistants, code déjà utilisé, stock à 0, panier vide...). Il ne doit jamais planter.
 
 ---
 
@@ -613,6 +636,7 @@ Fais une dernière passe : essaie de **casser** ton programme (lettres, nombres 
    Dès qu'un client a 100 points, propose-lui d'en utiliser 100 pour une réduction de 5,00 €.
 2. **Annuler la dernière vente.** Un nouveau choix du menu annule la dernière vente : elle disparaît de la liste, les produits reviennent dans le stock et les quantités vendues sont corrigées.
    💡 Pour ça, la vente doit se souvenir de son panier...
-3. **Chercher un produit par son nom.** Si le caissier tape des **lettres** à la place d'un code, affiche les produits dont le nom contient ces lettres, puis redemande le code.
-4. **Trier le catalogue** par prix croissant avant de l'afficher, **sans** méthode de tri toute faite (avec des boucles). Travaille sur une **copie** de la liste.
-5. **Les codes promo.** Le client donne un code promo : `NOEL10` donne 10 % sur les snacks, `EAU` offre une bouteille d'eau dès 15 € d'achat. Un code inconnu est refusé.
+3. **Changer le code d'un produit.** Le nouveau code doit être libre. Il faut **retirer** l'ancienne clé et **ajouter** la nouvelle (et penser au champ `Code` du produit).
+4. **Supprimer un produit** du catalogue : seulement si son stock est à 0, avec confirmation `O/N`.
+5. **Chercher un produit par son nom.** Si le caissier tape des **lettres** à la place d'un code, affiche les produits dont le nom contient ces lettres, puis redemande le code.
+6. **Trier le catalogue** par prix croissant avant de l'afficher, **sans** méthode de tri toute faite (avec des boucles) : copie d'abord les produits du dictionnaire dans une `List<Produit>`, puis trie cette liste.

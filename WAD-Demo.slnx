@@ -4,6 +4,7 @@
     <Project Path="WAD-Demo-Boucle/WAD-Demo-Boucle.csproj" Id="94d2d48c-9611-4f8e-b535-5ab271397c52" />
     <Project Path="WAD-Demo-Collection/WAD-Demo-Collection.csproj" />
     <Project Path="WAD-Demo-Conversion/WAD-Demo-Conversion.csproj" Id="822e9fc3-9ae9-4564-b5cc-5175a6340956" />
+    <Project Path="WAD-Demo-Methode/WAD-Demo-Methode.csproj" />
     <Project Path="WAD-Demo-Operateur/WAD-Demo-Operateur.csproj" Id="264dcffa-f287-4b91-b426-d6509c66a20b" />
     <Project Path="WAD-Demo-Recap1/WAD-Demo-Recap1.csproj" Id="6742861d-1c06-476d-a7ae-8f89f7a55653" />
     <Project Path="WAD-Demo-String/WAD-Demo-String.csproj" Id="58699288-e47f-45bd-94f6-a42442c29de8" />

@@ -4,6 +4,10 @@ internal struct Article
 {
     // Les propriétés d'une classe ou d'une struct commence par une majuscule
     public string Nom;
+
+    // Rendre plus strict le type de mes catégories
+    // en créant une enum qui aura à l'intérieur (snack, fruit, légume)
+    
     public string Categorie;
     public int Stock;
 
