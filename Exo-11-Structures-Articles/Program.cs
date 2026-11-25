@@ -30,32 +30,14 @@ List<Article> articles = new();
 bool continuer = true;
 do
 {
-    // Méthode qui crée l'article
-    // pour aérer le code
-    // si vous bloquez passer au exerccie dans le slide numéro 194
-    // ou aux exercices récap
-    // quand c'est fait passer au exercice dans le slide numéro 194
-
-    Console.WriteLine("Crée votre article");
-    Console.Write("Nom de l'article ? ");
-    string nom = Console.ReadLine();
-    Console.Write("Catégorie de l'article ? ");
-    string categorie = Console.ReadLine();
-    Console.Write("Nombe en stock ? ");
-    int stock = int.Parse(Console.ReadLine());
-
-    Console.WriteLine();
-
-    Emballage emballage = Emballage.CreerEmballage();
+    Emballage emballage = Emballage.Creer();
     // Crée l'objet article
-    Article article = new(nom, categorie, stock, emballage);
+    Article article = Article.Creer(emballage);
 
     articles.Add(article);
 
     Console.WriteLine("Veux-tu rajouter un autre article ? (True/False)");
     continuer = bool.Parse(Console.ReadLine());
-
-
 } while (continuer);
 
 

@@ -16,7 +16,7 @@ internal struct Emballage
         Matiere = matiere;
     }
 
-    public static Emballage CreerEmballage()
+    public static Emballage Creer()
     {
         Console.WriteLine("Création d'emballage");
         Console.WriteLine("Quel couleur est votre emballage ?");
@@ -29,8 +29,3 @@ internal struct Emballage
         return new Emballage(couleur, vrac, matiere);
     }
 }
-
-
-// Couleur
-// Vrac (oui/non)
-// Matiere (plastic ou carton)
