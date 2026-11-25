@@ -8,19 +8,23 @@
     <Project Path="WAD-Demo-Recap1/WAD-Demo-Recap1.csproj" Id="6742861d-1c06-476d-a7ae-8f89f7a55653" />
     <Project Path="WAD-Demo-String/WAD-Demo-String.csproj" Id="58699288-e47f-45bd-94f6-a42442c29de8" />
     <Project Path="WAD-Demo-Structure-Conditionnelle/WAD-Demo-Structure-Conditionnelle.csproj" Id="7cc3e322-2a3f-4ac7-aa5b-4db8ebc6d94e" />
+    <Project Path="WAD-Demo-Structure/WAD-Demo-Structure.csproj" />
     <Project Path="WAD-Demo/WAD-Demo-Variable.csproj" />
   </Folder>
   <Folder Name="/Exercices/">
-    <Project Path="EXO-1-Fiche-Utilisateur/EXO-1-Fiche-Utilisateur.csproj" />
-    <Project Path="EXO-10-boucle/EXO-10-boucle.csproj" Id="616bdd5d-39dd-4b20-a1f0-2e3d1507d16f" />
-    <Project Path="EXO-2-TypeVariale/EXO-2-TypeVariale.csproj" Id="f3c3debd-02ea-42cc-accd-64c2135a9fd8" />
-    <Project Path="EXO-3-Recap/EXO-3-Recap.csproj" />
-    <Project Path="EXO-4-Conversion/EXO-4-Conversion.csproj" Id="325db5b9-e2eb-425c-8159-839897974a95" />
-    <Project Path="EXO-5-conditionnel-1/EXO-5-conditionnel-1.csproj" Id="1f6a189e-b65a-4edc-9632-6d76b65a6dd2" />
-    <Project Path="EXO-6-Operateur/EXO-6-Operateur.csproj" Id="7ecaa8c5-d48c-4506-a0db-ac2cd50649ac" />
-    <Project Path="EXO-8-COALESCE/EXO-8-COALESCE.csproj" Id="3161f18e-212e-49c7-b473-dec19b1c9f7f" />
-    <Project Path="EXO-9-is-as/EXO-9-is-as.csproj" Id="7e61c14e-6ce7-4d10-be36-c2a4c6d5aaf2" />
-    <Project Path="EXO/EXO.csproj" Id="2174739f-4fad-451f-b919-ab0a22e95946" />
+    <Project Path="Exo-11-Structures-Articles/Exo-11-Structures-Articles.csproj" Id="bb57ae3a-3dd2-40e6-a722-2a692a57c9a9" />
+    <Project Path="EXO-12-Structure-Temperature/EXO-12-Structure-Temperature.csproj" Id="c6f57360-d2d4-42c2-8ba5-3c04cdb046f8" />
+    <Project Path="EXO/EXO-1-Fiche-Utilisateur/EXO-1-Fiche-Utilisateur.csproj" />
+    <Project Path="EXO/Exo-1-recap/Exo-1-recap.csproj" />
+    <Project Path="EXO/EXO-10-boucle-correction/EXO-10-boucle-correction.csproj" />
+    <Project Path="EXO/EXO-10-boucle/EXO-10-boucle.csproj" Id="616bdd5d-39dd-4b20-a1f0-2e3d1507d16f" />
+    <Project Path="EXO/EXO-2-TypeVariale/EXO-2-TypeVariale.csproj" Id="f3c3debd-02ea-42cc-accd-64c2135a9fd8" />
+    <Project Path="EXO/EXO-3-Recap/EXO-3-Recap.csproj" />
+    <Project Path="EXO/EXO-4-Conversion/EXO-4-Conversion.csproj" Id="325db5b9-e2eb-425c-8159-839897974a95" />
+    <Project Path="EXO/EXO-5-conditionnel-1/EXO-5-conditionnel-1.csproj" Id="1f6a189e-b65a-4edc-9632-6d76b65a6dd2" />
+    <Project Path="EXO/EXO-6-Operateur/EXO-6-Operateur.csproj" Id="7ecaa8c5-d48c-4506-a0db-ac2cd50649ac" />
+    <Project Path="EXO/EXO-8-COALESCE/EXO-8-COALESCE.csproj" Id="3161f18e-212e-49c7-b473-dec19b1c9f7f" />
+    <Project Path="EXO/EXO-9-is-as/EXO-9-is-as.csproj" Id="7e61c14e-6ce7-4d10-be36-c2a4c6d5aaf2" />
   </Folder>
   <Folder Name="/Recapitulatif/" />
   <Folder Name="/Recapitulatif/Recap-0-140/">
@@ -148,5 +152,20 @@
     <Project Path="Recapitulatif/Recap-0-140/EXO-121-L-Operateur-As/EXO-121-L-Operateur-As.csproj" />
     <Project Path="Recapitulatif/Recap-0-140/EXO-122-Priorite-Des-Calculs/EXO-122-Priorite-Des-Calculs.csproj" />
     <Project Path="Recapitulatif/Recap-0-140/EXO-123-Priorite-ET-Avant-OU/EXO-123-Priorite-ET-Avant-OU.csproj" />
+  </Folder>
+  <Folder Name="/Labos/">
+    <File Path="Labos/LISEZ-MOI.md" />
+  </Folder>
+  <Folder Name="/Labos/Facile/">
+    <File Path="Labos/Facile/LABO-1-Caisse-Enregistreuse/ENONCE.md" />
+    <File Path="Labos/Facile/LABO-2-Bibliotheque/ENONCE.md" />
+    <Project Path="Labos/Facile/LABO-1-Caisse-Enregistreuse/LABO-1-Caisse-Enregistreuse.csproj" />
+    <Project Path="Labos/Facile/LABO-2-Bibliotheque/LABO-2-Bibliotheque.csproj" />
+  </Folder>
+  <Folder Name="/Labos/Normal/">
+    <File Path="Labos/Normal/LABO-3-Concessionnaire/ENONCE.md" />
+    <File Path="Labos/Normal/LABO-4-Hotel/ENONCE.md" />
+    <Project Path="Labos/Normal/LABO-3-Concessionnaire/LABO-3-Concessionnaire.csproj" />
+    <Project Path="Labos/Normal/LABO-4-Hotel/LABO-4-Hotel.csproj" />
   </Folder>
 </Solution>

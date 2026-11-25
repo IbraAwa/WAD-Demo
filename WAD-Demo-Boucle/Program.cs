@@ -1,124 +1,67 @@
-﻿
-//// FOR
-//// on l'utilise quand
-//// on est sur combien de fois on va répéter l'action exactement
-//// quand on veut aller chercher dans un tableau un élément via son index
+﻿// === LES BOUCLES ===
 
-////  initilialiseur  condition  itérateur
-//for(int i = 0      ; i < 5    ; i++)
-//{
-//    Console.WriteLine($"je suis au numéro {i}");
-//}
+// une boucle permet de RÉPÉTER du code plusieurs fois sans le réécrire
+// for, while, do while, foreach (+ break et continue)
 
-//Console.Clear();
+// lequel choisir ?
+// for      -> on sait combien de fois on répète / on a besoin de l'index
+// while    -> on répète TANT QU'une condition est vraie (peut ne jamais s'exécuter)
+// do while -> pareil, mais s'exécute AU MOINS une fois
+// foreach  -> on parcourt chaque élément d'une collection (sans index)
 
-//// exemple 
-//// Je suis un pilote de F1 et je veux faire 5 tours de circuit
-//// pour notre compétition il doit faire 5 tour de circuit
+// chaque sous-chapitre est dans son propre fichier (une static class)
+// chaque méthode montre UNE seule chose, son nom dit ce qu'elle montre
+// static = pas besoin de faire un new, on appelle directement NomDeLaClasse.Methode()
 
-////int tourFaitDuCircuit = 5;
-////for(int i = 0; i <= 5; i++)
-////{
-////    Console.WriteLine($"Mon pilote est au {i}eme tour");
-////}
+using WAD_Demo_Boucle.Demos;
 
-//int tourFaitDuCircuit = 5;
-//for (int i = 1; i <= 5; i++)
-//{
-//    Console.WriteLine($"Mon pilote est au {i}eme tour");
-//}
+// ==============================================
+// FOR  initialiseur ; condition ; itérateur      (For.cs)
+// ==============================================
+Console.WriteLine("===== FOR =====");
+For.ForCompterDe0A4Demo();
+For.ForToursDeCircuitF1Demo();
+For.PiegeUnTourEnTropAvecInferieurOuEgalDemo();
+For.ForDecompteFuseeDemo();
+For.ForParcourirUnTableauAvecLIndexDemo();
+For.PiegeIndexEnDehorsDuTableauDemo();
 
-//Console.Clear();
+// ==============================================
+// WHILE  tant que...                             (While.cs)
+// ==============================================
+Console.WriteLine("===== WHILE =====");
+While.WhileRemplirLeReservoirDemo();
+While.WhileConditionFausseDesLeDepartDemo();
+While.PiegeBoucleInfinieDemo();
 
-//// EXEMPLE lancement d'une fuséee
-//// crée un décompte de 10 -> 0 pour lancer notre fuséé
-//int compter = 10;
+// ==============================================
+// DO WHILE  au moins une fois                    (DoWhile.cs)
+// ==============================================
+Console.WriteLine("===== DO WHILE =====");
+DoWhile.DoWhileServirDesClientsDemo();
+DoWhile.DoWhileSExecuteAuMoinsUneFoisDemo();
 
-//Console.WriteLine("Départ de la fusée dans...");
-//for(int i = 10; i >= 0; i--)
-//{
-//    Console.WriteLine(i);
-//}
+// ==============================================
+// FOREACH  chaque élément d'une collection        (Foreach.cs)
+// ==============================================
+Console.WriteLine("===== FOREACH =====");
+Foreach.ForeachFruitsEtLegumesDemo();
+Foreach.ForeachNotesReussiOuEchoueDemo();
+Foreach.ForeachCalculerLaMoyenneDemo();
+Foreach.PiegeForeachEnLectureSeuleDemo();
 
-//Console.Clear();
-//// choisir le nombre de fois qu'on va répéter la boucle
-////Console.WriteLine("A partir de quel nombre voulez-vous decompter ?");
-////int nombreACompter = int.Parse(Console.ReadLine());
+// ==============================================
+// BREAK ET CONTINUE                              (BreakEtContinue.cs)
+// ==============================================
+Console.WriteLine("===== BREAK ET CONTINUE =====");
+BreakEtContinue.BreakTrouverLePremierEchecDemo();
+BreakEtContinue.ContinueIgnorerLesEchecsDemo();
 
-////Console.WriteLine($"Vous avez choisis de decompter de {nombreACompter} jusqu'a 0");
-////for(int i = nombreACompter; i >= 0; i--)
-////{
-////    Console.WriteLine(i);
-////}
-
-//Console.WriteLine("A partir de quel nombre voulez-vous decompter ?");
-//int nombreACompter = int.Parse(Console.ReadLine());
-
-//Console.WriteLine("Et jusqu'a quel nombre voulez-vous qu'on decompte ?");
-//int nombreFini = int.Parse(Console.ReadLine());
-//Console.WriteLine();
-
-//Console.WriteLine($"Vous avez choisis de decompter de {nombreACompter} jusqu'a {nombreFini}");
-//for(int i = nombreACompter; i >= nombreFini; i--)
-//{
-//    Console.WriteLine(i);
-//}
-
-
-// WHILE
-// WHILE est utilisé quand on compte pas forcément quelque chose
-// WHILE peut-être utilisé pour une condition autre qu'un chiffre
-
-
-// EXEMPLE 
-// Je veux que mon enfant apprenne à dire "bonjour"
-// tant qu'il ne dit pas bonjour je continue à lui demander de le dire
-//Console.Clear();
-//Console.WriteLine("Chère enfant peux-tu dire 'bonjour'");
-//string demanderUnBonjour = Console.ReadLine();
-
-//while(demanderUnBonjour != "bonjour")
-//{
-//    Console.WriteLine("Non ce n'est pas comme ça qu'on dit bonjour...dit 'bonjour'");
-//    demanderUnBonjour = Console.ReadLine();
-//}
-//Console.WriteLine();
-//Console.WriteLine("Merci d'avoir dit bonjour");
-
-// DO WHILE
-// EFFECTUE l'action PUIS REGARDE LA CONDITION
-
-// Menu et il doit prendre absolument des frites dans notre menu
-// Tant qu'il ne prend pas de frite on continue à lui demander
-//Console.Clear();
-//string choixUtilisateur;
-//do
-//{
-//    Console.WriteLine("Que veux-tu dans ton menu ?");
-//    choixUtilisateur = Console.ReadLine();
-//} while (choixUtilisateur != "frite");
-
-
-// FOREACH
-// récupère la valeur d'un élément dans une liste
-// attention il ne récupère pas l'index
-
-string[] fruitLegumes = ["Pomme", "Poire", "Banane", "Brocoli", "Tomate", "Haricot"];
-
-foreach(string fruitLegume in fruitLegumes)
-{
-    Console.WriteLine(fruitLegume);
-}
-
-int[] noteEleves = [12, 15, 18, 9, 7, 2, 12, 10];
-
-foreach(int noteEleve in noteEleves)
-{
-    if(noteEleve >= 10)
-    {
-        Console.WriteLine($"vous avez réussi avec la note de {noteEleve}");
-    } else
-    {
-        Console.WriteLine($"vous avez échoué avec la note de {noteEleve} ");
-    }
-}
+// ==============================================
+// AVEC L'UTILISATEUR                             (AvecUtilisateur.cs)
+// ==============================================
+// demande une saisie à l'utilisateur, décommenter pour tester
+//Console.WriteLine("===== AVEC L'UTILISATEUR =====");
+//AvecUtilisateur.DecompterEntreDeuxNombresSaisisDemo();
+//AvecUtilisateur.DireBonjourAvecWhileDemo();
+//AvecUtilisateur.MenuAvecFritesDoWhileDemo();
